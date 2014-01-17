@@ -33,7 +33,7 @@ def plot_v(data, directory):
                  linestyle= ':'
                  )
 
-    plt.xticks(numpy.arange(x[0], x[-1], 10))
+    plt.xticks(numpy.arange(x[0], x[-1], 20))
     #plt.xticks(x)
     fontP = FontProperties()
     fontP.set_size('small')
@@ -77,20 +77,20 @@ def plot_dispersion(data, directory):
     #std = [value['avg_result_std'] for value in ]
     plt.errorbar(x, y1,
                  #yerr=std,
-                 #marker=get_marker_style(),
+                 marker='v',
                  label="dispersion XY",
-                 capsize=1
-                 #linestyle= get_line_style()
+                 capsize=1,
+                 linestyle= ":"
                  )
-    plt.xticks(x)
+    plt.xticks(numpy.arange(x[0], x[-1], 20))
     plt.errorbar(x, y2,
                  #yerr=std,
-                 #marker=get_marker_style(),
+                 marker="^",
                  label="dispersion Z",
-                 capsize=1
-                 #linestyle= get_line_style()
+                 capsize=1,
+                 linestyle= ":"
                  )
-    plt.xticks(x)
+    plt.xticks(numpy.arange(x[0], x[-1], 20))
     fontP = FontProperties()
     fontP.set_size('small')
     leg = plt.legend(loc = 4, prop = fontP)
@@ -101,7 +101,9 @@ def plot_dispersion(data, directory):
 
     plt.legend(loc = 2, prop = fontP)
     plt.savefig(directory + '/dispersion-' + data['name'] + '.png')
-    plt.yscale("log")
-    plt.ylabel('dispersion xy - log')
-    plt.savefig(directory + '/dispersion-log-' + data['name'] + '.png')
-
+    try:
+        plt.yscale("log")
+        plt.ylabel('dispersion xy - log')
+        plt.savefig(directory + '/dispersion-log-' + data['name'] + '.png')
+    except:
+        print "Data has no positive values"

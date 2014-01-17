@@ -144,8 +144,14 @@ print "line random v"
 data = generator_of_examples.get_line_xy_with_random_v(200)
 describe_data(data)
 
+#dispersion
+print "line const v z dispersion"
+data = generator_of_examples.get_line_xy_with_const_v_and_z_disp(200)
+describe_data(data)
 
-
+print "line const v xy dispersion"
+data = generator_of_examples.get_line_xy_with_const_v_and_xy_disp(200)
+describe_data(data)
 #data = generator_of_examples.get_line_xy_xy()
 #describe_data(data)
 

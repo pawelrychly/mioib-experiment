@@ -35,7 +35,7 @@
       <file leaf-file-name="data_processing.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="32" selection-start="3366" selection-end="3369" vertical-scroll-proportion="-3.5" vertical-offset="1609" max-vertical-offset="3978">
+            <state line="150" column="0" selection-start="4896" selection-end="4896" vertical-scroll-proportion="-6.769231" vertical-offset="2374" max-vertical-offset="4080">
               <folding>
                 <element signature="e#28#38#0" expanded="true" />
               </folding>
@@ -52,19 +52,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generator_of_examples.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="generator_of_examples.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator_of_examples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="27" selection-start="991" selection-end="991" vertical-scroll-proportion="0.6588629" vertical-offset="330" max-vertical-offset="4420">
+            <state line="24" column="34" selection-start="526" selection-end="526" vertical-scroll-proportion="-1.9615384" vertical-offset="306" max-vertical-offset="5032">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plots.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ticker.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/matplotlib/ticker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1342" column="0" selection-start="42076" selection-end="42076" vertical-scroll-proportion="0.0" vertical-offset="22596" max-vertical-offset="27489">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="axes.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/matplotlib/axes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2681" column="0" selection-start="93912" selection-end="93912" vertical-scroll-proportion="0.0" vertical-offset="45342" max-vertical-offset="144211">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyplot.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/matplotlib/pyplot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1287" column="0" selection-start="37907" selection-end="37907" vertical-scroll-proportion="0.0" vertical-offset="21410" max-vertical-offset="52139">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plots.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="31" selection-start="886" selection-end="886" vertical-scroll-proportion="-1.9615384" vertical-offset="459" max-vertical-offset="1921">
+            <state line="79" column="26" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.31501833" vertical-offset="1257" max-vertical-offset="1955">
               <folding>
                 <element signature="e#29#53#0" expanded="true" />
               </folding>
@@ -83,9 +110,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/evaluations_of_locomotion_patterns.py" />
-        <option value="$PROJECT_DIR$/plots.py" />
         <option value="$PROJECT_DIR$/data_processing.py" />
         <option value="$PROJECT_DIR$/generator_of_examples.py" />
+        <option value="$PROJECT_DIR$/plots.py" />
       </list>
     </option>
   </component>
@@ -390,7 +417,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.4558952" order="7" side_tool="false" content_ui="tabs" />
@@ -400,7 +427,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39932886" sideWeight="0.499391" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46895424" sideWeight="0.18960468" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46895424" sideWeight="0.80966324" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46895424" sideWeight="0.80966324" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -423,18 +450,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data_processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="1898" selection-end="1898" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1105" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluations_of_locomotion_patterns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_processing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="20" selection-start="295" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1122" />
@@ -467,11 +482,6 @@
         <state line="196" column="0" selection-start="7158" selection-end="7158" vertical-scroll-proportion="0.0" vertical-offset="3124" max-vertical-offset="15385" />
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3847" column="0" selection-start="132001" selection-end="132001" vertical-scroll-proportion="0.0" vertical-offset="65174" max-vertical-offset="144211" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/1_star_waterR.gen">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10042" column="4" selection-start="424683" selection-end="424687" vertical-scroll-proportion="10.103896" vertical-offset="168380" max-vertical-offset="1706613" />
@@ -498,28 +508,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2681" column="0" selection-start="93912" selection-end="93912" vertical-scroll-proportion="0.0" vertical-offset="45342" max-vertical-offset="144211">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/ticker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1342" column="0" selection-start="42076" selection-end="42076" vertical-scroll-proportion="0.0" vertical-offset="22596" max-vertical-offset="27489">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="32" selection-start="3366" selection-end="3369" vertical-scroll-proportion="-3.5" vertical-offset="1609" max-vertical-offset="3978">
+        <state line="150" column="0" selection-start="4896" selection-end="4896" vertical-scroll-proportion="-6.769231" vertical-offset="2374" max-vertical-offset="4080">
           <folding>
             <element signature="e#28#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plots.py">
+    <entry file="file://$PROJECT_DIR$/generator_of_examples.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="31" selection-start="886" selection-end="886" vertical-scroll-proportion="-1.9615384" vertical-offset="459" max-vertical-offset="1921">
-          <folding>
-            <element signature="e#29#53#0" expanded="true" />
-          </folding>
+        <state line="24" column="34" selection-start="526" selection-end="526" vertical-scroll-proportion="-1.9615384" vertical-offset="306" max-vertical-offset="5032">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator_of_examples.py">
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/pyplot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="27" selection-start="991" selection-end="991" vertical-scroll-proportion="0.6588629" vertical-offset="330" max-vertical-offset="4420">
+        <state line="1287" column="0" selection-start="37907" selection-end="37907" vertical-scroll-proportion="0.0" vertical-offset="21410" max-vertical-offset="52139">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="26" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.31501833" vertical-offset="1257" max-vertical-offset="1955">
+          <folding>
+            <element signature="e#29#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

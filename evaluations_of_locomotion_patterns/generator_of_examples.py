@@ -27,7 +27,7 @@ def get_sin_dispersion(a, length):
 
 
 
-def get_track(name, time, f_x, f_y, f_z, group="default",dispersion = {"Dxy":0, "Dz":0}, noise = False):
+def get_track(name, time, f_x, f_y, f_z, group="default",dispersion = {"Dxy":0.5, "Dz":0.5}, noise = False):
     data = {}
     data = {"info":{}, "name":name, "group": group}
     data['info']['c'] = [{'x':f_x(clock), 'y': f_y(clock), 'z': f_z(clock)} for clock in time]
@@ -35,10 +35,12 @@ def get_track(name, time, f_x, f_y, f_z, group="default",dispersion = {"Dxy":0, 
     data['info']['Dz'] = get_sin_dispersion(dispersion["Dz"], len(time))
     return data
 
-def get_track_by_series(name, time, x_vec, y_vec, z_vec, group="default", noise = False):
+def get_track_by_series(name, time, x_vec, y_vec, z_vec, group="default", dispersion = {"Dxy":0.5, "Dz":0.5}, noise = False):
     data = {}
     data = {"info":{}, "name":name, "group": group}
     data['info']['c'] = [{'x':x_vec[i], 'y': y_vec[i], 'z': z_vec[i]} for i, clock in enumerate(time)]
+    data['info']['Dxy'] = get_sin_dispersion(dispersion["Dxy"], len(time))
+    data['info']['Dz'] = get_sin_dispersion(dispersion["Dz"], len(time))
     return data
 
 def get_arc_xy(length, r):
@@ -71,6 +73,40 @@ def get_line_xy_with_const_v(length):
        group = "predkosc"
     )
 
+
+def get_line_xy_with_const_v_and_xy_disp(length):
+    time = [i for i in range(length)]
+    x = [0]
+    for t in time:
+        x.append(x[-1] + 0.5)
+    y = [5 for i in time]
+    z = [0 for i in time]
+    return get_track_by_series(
+       name = "line_v_const_with_xy_disperision",
+       time = time,
+       x_vec = x,
+       y_vec = y,
+       z_vec = z,
+       dispersion= {"Dxy":2, "Dz":0.5 },
+       group = "dispersion"
+    )
+
+def get_line_xy_with_const_v_and_z_disp(length):
+    time = [i for i in range(length)]
+    x = [0]
+    for t in time:
+        x.append(x[-1] + 0.5)
+    y = [5 for i in time]
+    z = [0 for i in time]
+    return get_track_by_series(
+       name = "line_v_const_with_z_disperision",
+       time = time,
+       x_vec = x,
+       y_vec = y,
+       z_vec = z,
+       dispersion= {"Dxy":0.5, "Dz":2 },
+       group = "dispersion"
+    )
 
 def get_line_xy_with_sin_v(length, f):
     time = [i for i in range(length)]
