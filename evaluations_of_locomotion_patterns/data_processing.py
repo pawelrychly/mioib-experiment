@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import matplotlib.pyplot as plt
-from plots import plot_path, plot_dispersion
+from plots import plot_path, plot_dispersion, plot_v
 import numpy
 import generator_of_examples
 
@@ -16,13 +16,10 @@ sys.argv.append("1_star_waterR.gen")
 
 
 
-
-
-
 def read_file(file_name):
     depth = 0
     data = []
-    print file_name
+    #print file_name
     with open("data/" + file_name) as file:
         temp_genotype = {}
         field_name = ""
@@ -76,8 +73,8 @@ def read_file(file_name):
             genotype_data["info"] = info
     return data
 
-def describe_data(data):
-    print data
+def describe_data(data, ranges = {"x":[], "y":[], "z":[]}, is_large_data = False):
+    #print data
     if not data.has_key("name"):
         print "Obiekt nie posiada nazwy"
         return
@@ -91,7 +88,8 @@ def describe_data(data):
 
     c = data["info"]["c"]
 
-    plot_path(data, directory)
+    plot_v(data, directory)
+    plot_path(data, directory, ranges, is_large_data = is_large_data)
     d_xy = []
     d_z = []
     results = {}
@@ -99,7 +97,7 @@ def describe_data(data):
     results['err_xy'] = err_xy(c)
     results['max_f'] = max_f(c)
     results['sfm'] = sfm(c)
-    max_f_auto(c)
+    results['max_f_auto'] = max_f_auto(c)
     if data['info'].has_key('Dxy') and data['info'].has_key('Dz'):
         d_xy = data["info"]["Dxy"]
         d_z = data["info"]["Dz"]
@@ -107,7 +105,7 @@ def describe_data(data):
         results['vef'] = vef(d_z)
         results['hw'] = hw(d_xy, d_z)
         plot_dispersion(data, directory)
-    directory += "/" + data["name"] + "txt"
+    directory += "/" + data["name"] + ".txt"
     with open(directory, 'w+') as file:
         file.write(str(results).replace(",",",\n\r"))
     print results
@@ -118,12 +116,79 @@ def describe_organism(file_name, uid):
     for organism in data:
         if organism["uid"] == uid:
             organism['group'] = group
-            describe_data(organism)
+            describe_data(organism, is_large_data=True)
 
+#arc
+#std error
+print "arc 200 2"
+data = generator_of_examples.get_arc_xy(200, 1)
+describe_data(data)
+print "arc 200 5"
+data = generator_of_examples.get_arc_xy(200, 2)
+describe_data(data)
+#lines
+# Speed description
+print "line const v"
+data = generator_of_examples.get_line_xy_with_const_v(200)
+describe_data(data)
+print "line sin v 2"
+data = generator_of_examples.get_line_xy_with_sin_v(200, 2)
+describe_data(data)
+print "line sin v 4"
+data = generator_of_examples.get_line_xy_with_sin_v(200, 4)
+describe_data(data)
+print "line sin v 8"
+data = generator_of_examples.get_line_xy_with_sin_v(200, 8)
+describe_data(data)
+print "line random v"
+data = generator_of_examples.get_line_xy_with_random_v(200)
+describe_data(data)
+
+
+
+#data = generator_of_examples.get_line_xy_xy()
+#describe_data(data)
 
 #describe_organism(sys.argv[1], "g1")
-data = generator_of_examples.get_sinus_track(name="sin-1000-z-0_1-0_1", num_of_steps=1000, dimension="z", step_size=0.1, step_time=0.1)
-describe_data(data)
+#data = generator_of_examples.get_sinus_track(name="sin-1000-z-0_1-0_1", num_of_steps=1000, dimension="z", step_size=0.1, step_time=0.1)
+
+#sinus
+#data = generator_of_examples.get_sinus_xy_1T()
+#describe_data(data, ranges={"x": [], "y": [-4,4], "z":[]})
+#data = generator_of_examples.get_sinus_xy_10T()
+#describe_data(data,  ranges={"x": [], "y": [-4,4], "z":[]})
+
+#sinus with noise
+#data = generator_of_examples.get_sinus_xy_1T_with_noise()
+#describe_data(data, ranges={"x": [], "y": [-4,4], "z":[]})
+#data = generator_of_examples.get_sinus_xy_10T_with_noise()
+#describe_data(data,  ranges={"x": [], "y": [-4,4], "z":[]})
+
+#lines
+#data = generator_of_examples.get_line_xy_x()
+#describe_data(data)
+#data = generator_of_examples.get_line_xy_y()
+#describe_data(data)
+#data = generator_of_examples.get_line_xy_xy()
+#describe_data(data)
+#rectangles
+#data = generator_of_examples.get_rectangular_xy_10T()
+#describe_data(data,ranges={"x": [], "y": [-4,4], "z":[]})
+#random
+#data = generator_of_examples.get_random_xy(0.1, 1000)
+#describe_data(data)
+#data = generator_of_examples.get_random_xy(0.1, 50, 2)
+#describe_data(data)
+#data = generator_of_examples.get_random_xy(0.1, 50, 3)
+#describe_data(data)
+#data = generator_of_examples.get_random_xy(0.1, 50, 4)
+#describe_data(data)
+
+#line with noise
+#data = generator_of_examples.get_line_with_noise_y()
+#describe_data(data, ranges={"x": [], "y": [0,10], "z":[]})
+
+
 #results_err_xy = []
 #results_ff = []
 #results_vef = []

@@ -6,6 +6,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from matplotlib.font_manager import FontProperties
+import evaluations_of_locomotion_patterns
+import numpy
+
+
 
 def prepare_directory(data, directory):
     if not data.has_key('group'):
@@ -14,7 +18,32 @@ def prepare_directory(data, directory):
         os.makedirs(directory)
 
 
-def plot_path(data, directory):
+def plot_v(data, directory):
+    length = len(data['info']['c'])
+    distances = [ evaluations_of_locomotion_patterns.euclidean_distance(data['info']['c'][i-1], data['info']['c'][i]) for i in range(1,length)]
+    plt.figure()
+    x = [i for i in range(len(distances))]
+
+       #std = [value['avg_result_std'] for value in ]
+    plt.errorbar(x, distances,
+                 #yerr=std,
+                 marker='.',
+                 label="speed",
+                 capsize=1,
+                 linestyle= ':'
+                 )
+
+    plt.xticks(numpy.arange(x[0], x[-1], 10))
+    #plt.xticks(x)
+    fontP = FontProperties()
+    fontP.set_size('small')
+    leg = plt.legend(loc = 4, prop = fontP)
+    plt.xlabel('time')
+    plt.ylabel('speed')
+    plt.legend(loc = 2, prop = fontP)
+    plt.savefig(directory + '/speed-' + data['name'] + '.png')
+
+def plot_path(data, directory, ranges={ "x":[],"y": [],"z": []}, is_large_data = False):
     prepare_directory(data, directory)
     mpl.rcParams['legend.fontsize'] = 10
     fig = plt.figure()
@@ -22,7 +51,16 @@ def plot_path(data, directory):
     x = [ value["x"] for value in data['info']['c']]
     y = [ value["y"] for value in data['info']['c']]
     z = [ value["z"] for value in data['info']['c']]
-    ax.plot(x, y, z, label='path')
+    if not is_large_data:
+        ax.plot(x, y, z, '.', label="track")
+        ax.plot(x, y, z, ':', markerfacecolor='blue')
+    else:
+        ax.plot(x, y, z, ':', markerfacecolor='blue', label="track")
+
+    if len(ranges["x"]) == 2:
+        ax.set_xlim(ranges["x"])
+    if len(ranges["y"]) == 2:
+        ax.set_ylim(ranges["y"])
     #plt.errorbar()
     ax.legend()
     plt.savefig(directory + "/track-" + data['name'] + ".png")

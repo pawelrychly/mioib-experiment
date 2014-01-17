@@ -6,7 +6,8 @@ import decimal
 
 
 def real_fft(q):
-    f = numpy.fft.fft(q)
+    #print q
+    f = numpy.fft.rfft(q)
     f = f[1:]
     f =  [numpy.sqrt(value.real**2 + value.imag**2) for value in f]
     return f
@@ -19,17 +20,25 @@ def err_xy(c_vec):
     x_vec = [value["x"] for value in c_vec]
     y_vec = [value["y"] for value in c_vec]
     num_x = len(c_vec) - 2
+
     if num_x <= 0:
         return None
     x_avg = numpy.mean(x_vec)
+
     y_avg = numpy.mean(y_vec)
-    s_xy =  numpy.sum([numpy.square((y_vec[i] - y_avg) * (x_vec[i] - x_avg )) for i in range(len(x_vec))])
-    s_x = numpy.sum([numpy.square(x_vec[i] - x_avg) for i in range(len(x_vec))])
-    s_y = numpy.sum([numpy.square(y_vec[i] - y_avg) for i in range(len(y_vec))])
+
+    #s_xy =  numpy.sum([((y_vec[i] - y_avg) * (x_vec[i] - x_avg ))**2 for i in range(len(x_vec))])
+    s_xy =  numpy.sum([((y_vec[i] - y_avg) * (x_vec[i] - x_avg )) for i in range(len(x_vec))])
+
+    s_x = numpy.sum([(x_vec[i] - x_avg)**2 for i in range(len(x_vec))])
+    s_y = numpy.sum([(y_vec[i] - y_avg)**2 for i in range(len(y_vec))])
+
+    #print s_xy
+    #print s_x
+    #print s_y
     if s_x != 0:
-        return numpy.sqrt((s_y - (s_xy/s_x))/num_x)
-    if s_x == 0:
-        return numpy.sqrt((s_y / num_x))
+        return numpy.sqrt((s_y - ((s_xy**2)/s_x))/num_x)
+        return numpy.nan #numpy.sqrt((s_y / num_x))
 
 #flattening factor
 #evaluates creature movement dynamics in the xy plane
@@ -80,6 +89,7 @@ def max_f(c_vec):
     displacement_vector = [ euclidean_distance(c_vec[i+1], c_vec[i]) for i in range(length-1)]
     f = real_fft(displacement_vector)
     f_max = numpy.argmax(f)
+
     return f_max
 
 
@@ -87,6 +97,7 @@ def corrcoef(vec_1, vec_2):
     #print vec_1
     #print vec_2
     covariance = numpy.cov(vec_1, vec_2)
+
     #print covariance
     correlation_coefficient = [[ covariance[i][j]/numpy.sqrt(covariance[i][i]*covariance[j][j]) for j in range(len(covariance[i]))] for i in range(len(covariance))]
     #print correlation_coefficient
@@ -104,8 +115,15 @@ def max_f_auto(c_vec):
     auto_corr[0] = 1
     #if auto_corr_size > 3:
     #print speed
+
+
     for i in range(1, auto_corr_size):
-        auto_corr[i] = corrcoef(speed[0:len(speed)-i], speed[i:len(speed)])[0][1]
+        x_v = speed[0:len(speed)-i]
+        y_v = speed[i:len(speed)]
+        if all([ y == y_v[0] for y in y_v]):
+            return numpy.nan
+        auto_corr[i] = numpy.corrcoef([x_v,y_v])[0][1]
+            #auto_corr[i] = corrcoef(speed[0:len(speed)-i], speed[i:len(speed)])[0][1]
     lower_bound = 0
     for i in range(1, auto_corr_size):
         if auto_corr[i] > auto_corr[i-1]:
